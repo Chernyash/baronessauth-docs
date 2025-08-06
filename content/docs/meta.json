@@ -1,0 +1,7 @@
+{
+  "title": "BaronessAuth Документация",
+  "icon": "MyIcon",
+  "pages": ["index", "changelog", "embedded-servers", "plugin-structure", "standard-configs"],
+  "defaultOpen": true,
+  "language": "ru"
+}

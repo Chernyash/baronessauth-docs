@@ -1,0 +1,173 @@
+---
+title: baronessauth.yml - Основные команды плагина
+description: Настройки основных команд BaronessAuth
+---
+
+# Файл `baronessauth.yml`
+
+**Путь:** `content/BaronessAuth/config/commands/baronessauth.yml`
+
+Команда `/baronessauth` (`/auth`). Право: `BaronessAuth.command.baronessauth`. Предназначена для админов.
+
+Так как команд очень много, детальную настройку каждой субкоманды убрали - чтобы конфиг не был на тысячу строк.
+
+## 📋 Содержимое файла
+
+```yml
+# ┌────────────────────────────────
+# │ Команда /baronessauth (/auth).
+# │ Право: BaronessAuth.command.baronessauth.
+# │ Предназначена для админов.
+# │
+# │ Так как команд очень много, детальную настройку каждой субкоманды я убрал - чтобы конфиг не был на тысячу строк.
+# └────────────────────────────────
+
+help-header: '<gradient:#FFE082:#FFB74D>┏━━━━━━━━━━ Доступные команды ━━━━━━━━━━━━┓</gradient>'
+help-footer: '<gradient:#FFE082:#FFB74D>┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛</gradient>'
+
+# ┌────────────────────────────────
+# │ Команда /baronessauth reload.
+# │ Право: BaronessAuth.command.baronessauth.reload.
+# │ Перезагружает большую часть плагина (подхватывает новые настройки).
+# └────────────────────────────────
+reload:
+  help: '<gradient:#FFE082:#FFB74D>⮞</gradient> <white>/auth reload'
+  success: |-
+    <green>Плагин успешно перезагружен.
+    <yellow>Помните, что некоторые глобальные настройки (например, база данных) можно сменить только через полную перезагрузку!
+    <yellow>Как правило, над такими настройками в комментарии написано об этом.
+
+# ┌────────────────────────────────
+# │ Команда /baronessauth player [игрок] info.
+# │ Право: BaronessAuth.command.baronessauth.player.info
+# │ Выводит данные об игроке.
+# └────────────────────────────────
+player-info:
+  help: '<gradient:#FFE082:#FFB74D>⮞</gradient> <white>/auth player <gray><игрок></gray>
+    info'
+  output: |-
+    <gradient:#FFE082:#FFB74D>┏━━━━━━━━━━ Информация об игроке ━━━━━━━━━━━┓</gradient>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>Ник:</yellow> <white><name>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>Регистрация:</yellow> <white><register_date> <gray>(<register_ip> — <register_city>, <register_country>)</gray>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>Последний вход:</yellow> <white><last_login_date> <gray>(<last_login_ip> — <last_login_city>, <last_login_country>)</gray>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>UUID:</yellow> <white><uuid>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>Лицензия:</yellow> <white><license>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>VK:</yellow> <white><vk>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>Telegram:</yellow> <white><telegram>
+    <gradient:#FFE082:#FFB74D>⮞</gradient> <yellow>Discord:</yellow> <white><discord>
+    <gradient:#FFE082:#FFB74D>┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛</gradient>
+  licensed-yes: '<green>да'
+  licensed-no: '<red>нет'
+
+# ┌────────────────────────────────
+# │ Команда /baronessauth player [игрок] setpassword [пароль].
+# │ Право: BaronessAuth.command.baronessauth.player.setpassword
+# │ Устанавливает игроку пароль, обходя все ограничения паролей по сложности.
+# └────────────────────────────────
+player-setpassword:
+  help: '<gradient:#FFE082:#FFB74D>⮞</gradient> <white>/auth player <gray><игрок></gray>
+    setpassword <gray><пароль></gray>'
+  success: '<green>Вы успешно сменили пароль игроку <target>'
+
+# ┌────────────────────────────────
+# │ Команда /baronessauth player [игрок] delete.
+# │ Право: BaronessAuth.command.baronessauth.player.delete
+# │ Удаляет все данные о регистрации игрока.
+# └────────────────────────────────
+player-delete:
+  help: '<gradient:#FFE082:#FFB74D>⮞</gradient> <white>/auth player <gray><игрок></gray>
+    delete'
+  kick-reason: '<yellow>Ваша регистрация была удалена, поэтому вам нужно перезайти'
+  success: '<green>Вы успешно удалили регистрацию игрока <target>.'
+
+# ┌────────────────────────────────
+# │ Команда /baronessauth backup info [бекап-файл].
+# │ Право: BaronessAuth.command.baronessauth.backup.info
+# │ Отображает информацию о бекапе.
+# └────────────────────────────────
+backup-info:
+  help: '<gradient:#FFE082:#FFB74D>⮞</gradient> <white>/auth backup info <gray><файл></gray>'
+  output: |-
+    <yellow><b>||||</b></yellow> Данные о бекапе '<name>'
+    <yellow><b>||</b></yellow> Версия: <white><version></white>
+    <yellow><b>||</b></yellow> Дата создания: <white><creation_date></white>
+    <yellow><b>||</b></yellow> Вес: <white><file_size></white> <gray>(<file_size_bytes>)</gray>
+    <yellow><b>||</b></yellow> Профилей внутри: <white><profiles></white>
+
+# ┌────────────────────────────────
+# │ Команда /baronessauth backup create.
+# │ Право: BaronessAuth.command.baronessauth.backup.create
+# │ Создает бекап. Действие не мгновенное - вам будет показан прогресс по мере создания.
+# └────────────────────────────────
+backup-create:
+  help: '<gradient:#FFE082:#FFB74D>⮞</gradient> <white>/auth backup create'
+  progress: |-
+    <yellow><b>|||||</b></yellow> Бекап создаётся (<percent>%, ETA <eta> s)
+    <yellow><b>|||</b></yellow> Профилей сохранено: <white><saved></white>
+    <yellow><b>|||</b></yellow> Профилей всего: <white><total></white>
+  success: |-
+    <green>✔ Бекап создан: <white><file></white> (<file_size>)</green>
+    <green>Профилей сохранено: <white><saved></white></green>
+    <green>Профилей всего: <white><total></white></green>
+    <green>Создание завершилось за <white><time_spent></white>.</green>
+```
+
+## 🔧 Основные секции
+
+### Help Header/Footer
+Заголовки справки:
+- **help-header** - заголовок списка команд
+- **help-footer** - подвал списка команд
+
+### Reload
+Команда перезагрузки:
+- **help** - справка по команде
+- **success** - сообщение об успешной перезагрузке
+
+### Player Info
+Информация об игроке:
+- **help** - справка по команде
+- **output** - формат вывода информации
+- **licensed-yes/no** - отображение статуса лицензии
+
+### Player Setpassword
+Установка пароля игроку:
+- **help** - справка по команде
+- **success** - сообщение об успешной смене пароля
+
+### Player Delete
+Удаление регистрации игрока:
+- **help** - справка по команде
+- **kick-reason** - причина кика при удалении
+- **success** - сообщение об успешном удалении
+
+### Backup Info
+Информация о бекапе:
+- **help** - справка по команде
+- **output** - формат вывода информации
+
+### Backup Create
+Создание бекапа:
+- **help** - справка по команде
+- **progress** - отображение прогресса
+- **success** - сообщение об успешном создании
+
+## 🔐 Доступные команды
+
+### Основные команды
+- `/auth reload` - перезагрузить плагин
+- `/auth player <игрок> info` - информация об игроке
+- `/auth player <игрок> setpassword <пароль>` - установить пароль
+- `/auth player <игрок> delete` - удалить регистрацию
+
+### Бекапы
+- `/auth backup info <файл>` - информация о бекапе
+- `/auth backup create` - создать бекап
+- `/auth backup load <файл>` - загрузить бекап
+
+## ⚠️ Важно
+
+- Все команды требуют соответствующих прав
+- Команда `reload` не перезагружает настройки базы данных
+- Удаление регистрации кикает игрока с сервера
+- Бекапы создаются асинхронно с отображением прогресса 

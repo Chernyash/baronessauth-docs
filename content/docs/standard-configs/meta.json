@@ -1,0 +1,6 @@
+{
+  "title": "📋 Стандартные конфиги",
+  "icon": "Settings",
+  "pages": ["index", "general", "advanced", "passwords", "connection-filters", "password-method", "premium", "session", "telegram", "baronessauth-command", "shared-commands", "link", "logout", "changepassword", "unregister"],
+  "defaultOpen": false
+} 

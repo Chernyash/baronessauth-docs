@@ -1,0 +1,84 @@
+---
+title: Все конфиги плагина
+description: Все конфигурационные файлы BaronessAuth
+---
+
+# Стандартные конфиги BaronessAuth
+
+Здесь собраны все конфигурационные файлы плагина BaronessAuth с подробным описанием каждого параметра.
+
+## 📁 Структура конфигов
+
+### Основные конфиги
+- **[general.yml](./standard-configs/general)** - Основные настройки плагина
+  - **Путь:** `content/BaronessAuth/config/general.yml`
+- **[advanced.yml](./standard-configs/advanced)** - Расширенные настройки
+  - **Путь:** `content/BaronessAuth/config/advanced.yml`
+
+### Безопасность
+- **[passwords.yml](./standard-configs/passwords)** - Настройки безопасности паролей
+  - **Путь:** `content/BaronessAuth/config/security/passwords.yml`
+- **[connection_filters.yml](./standard-configs/connection-filters)** - Фильтры подключений
+  - **Путь:** `content/BaronessAuth/config/security/connection_filters.yml`
+
+### Методы аутентификации
+- **[password.yml](./standard-configs/password-method)** - Настройки парольной аутентификации
+  - **Путь:** `content/BaronessAuth/config/methods/password.yml`
+- **[premium.yml](./standard-configs/premium)** - Настройки Premium аутентификации
+  - **Путь:** `content/BaronessAuth/config/methods/premium.yml`
+- **[session.yml](./standard-configs/session)** - Настройки сессий
+  - **Путь:** `content/BaronessAuth/config/methods/session.yml`
+- **[telegram.yml](./standard-configs/telegram)** - Настройки Telegram аутентификации
+  - **Путь:** `content/BaronessAuth/config/methods/telegram.yml`
+
+### Команды
+- **[baronessauth.yml](./standard-configs/baronessauth-command)** - Основные команды плагина
+  - **Путь:** `content/BaronessAuth/config/commands/baronessauth.yml`
+- **[changepassword.yml](./standard-configs/changepassword)** - Команда смены пароля
+  - **Путь:** `content/BaronessAuth/config/commands/changepassword.yml`
+- **[link.yml](./standard-configs/link)** - Команда привязки аккаунта
+  - **Путь:** `content/BaronessAuth/config/commands/link.yml`
+- **[logout.yml](./standard-configs/logout)** - Команда выхода
+  - **Путь:** `content/BaronessAuth/config/commands/logout.yml`
+- **[unregister.yml](./standard-configs/unregister)** - Команда удаления аккаунта
+  - **Путь:** `content/BaronessAuth/config/commands/unregister.yml`
+- **[shared.yml](./standard-configs/shared-commands)** - Общие настройки команд
+  - **Путь:** `content/BaronessAuth/config/commands/_shared.yml`
+
+## 🔧 Как использовать
+
+1. Выберите нужный конфиг из списка выше
+2. Изучите описание каждого параметра
+3. Скопируйте настройки в соответствующий файл на вашем сервере
+4. Перезапустите сервер для применения изменений
+
+## 📂 Структура папок
+
+```
+./plugins/BaronessAuth/
+├── config/
+│   ├── general.yml          # Основные настройки
+│   ├── advanced.yml         # Расширенные настройки
+│   ├── security/
+│   │   ├── passwords.yml    # Настройки паролей
+│   │   └── connection_filters.yml # Фильтры подключений
+│   ├── methods/
+│   │   ├── password.yml     # Парольная аутентификация
+│   │   ├── premium.yml      # Premium аутентификация
+│   │   ├── session.yml      # Настройки сессий
+│   │   └── telegram.yml     # Telegram аутентификация
+│   └── commands/
+│       ├── baronessauth.yml # Основные команды
+│       ├── changepassword.yml # Смена пароля
+│       ├── link.yml         # Привязка аккаунта
+│       ├── logout.yml       # Выход
+│       ├── unregister.yml   # Удаление аккаунта
+│       └── _shared.yml      # Общие настройки команд
+```
+
+## ⚠️ Важно
+
+- Всегда делайте резервную копию конфигов перед изменением
+- Проверяйте синтаксис YAML после внесения изменений
+- Некоторые настройки требуют перезапуска плагина (/auth reload) или сервера
+- Изменения в `general.yml` и `advanced.yml` могут требовать полной перезагрузки BungeeCord 
