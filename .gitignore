@@ -27,5 +27,7 @@ yarn-error.log*
 .vercel
 next-env.d.ts
 
+
+testeassets/
 content/BaronessAuth/
 content/BaronessAuth.zip

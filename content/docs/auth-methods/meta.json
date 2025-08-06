@@ -1,0 +1,11 @@
+{
+  "title": "🔐 Методы авторизации",
+  "description": "Все доступные методы авторизации в BaronessAuth",
+  "icon": "Shield",
+  "pages": [
+    "password",
+    "telegram",
+    "premium",
+    "session"
+  ]
+} 
